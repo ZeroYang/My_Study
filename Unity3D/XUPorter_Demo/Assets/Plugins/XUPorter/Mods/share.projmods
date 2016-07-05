@@ -1,0 +1,20 @@
+{
+    "group": "AddThing",
+    "libs": [
+                "libsqlite3.0.tbd"
+                ],
+    "frameworks": [
+                    "CoreTelephony.framework",
+                    "AdSupport.framework:optional",
+                    "StoreKit.framework"
+                   ],
+    "headerpaths": [],
+    "files":   [
+                "../../iOS/XGSDK/libxgCommon.a",
+                "../../iOS/XGSDK/libxgsdk_unity3d.a",
+                "../../iOS/XGSDK/libXgsdkData.a",
+                ],
+    "folders": ["../../iOS/Common/"],    
+    "excludes": ["^.*.meta$", "^.*.mdown$", "^.*.pdf$","^.*.DS_Store$"],
+    "linker_flags": []
+}
