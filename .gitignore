@@ -41,3 +41,7 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# XUPorter_Demo Directories 
+/Unity3D/XUPorter_Demo/Library
+/Unity3D/XUPorter_Demo/Temp
