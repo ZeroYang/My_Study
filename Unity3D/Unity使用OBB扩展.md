@@ -215,6 +215,8 @@ image.png
 	obb 模式： jar:file:///storage/emulated/0/Android/obb/com.linyou.ssss/main.218.com.linyou.ssss.obb!/assets/
 	非Obb模式：jar:file:///data/app/package name-1/base.apk!/assets 
 
+	*如果obb文件挂载失败 返回的Application.streamingAssetsPath的路径会和非obb模式一致*
+
 MARK资料链接：
 [https://www.jianshu.com/p/af3f8e8f2a96](https://www.jianshu.com/p/af3f8e8f2a96)
 

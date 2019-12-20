@@ -1,0 +1,1 @@
+Mac 安装protoBuf 2.4.1 (可选， 直接将protoBuf的include头文件拷贝到/usr/lib/include)
