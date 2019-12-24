@@ -3,7 +3,8 @@
 ##奇葩问题
 
 1. 最近unity导出iOS打包，发现不放闪图，游戏启动不能全屏。。。。
-2. ios launchimage 替换后，在已安装过app的设备上 启动图替换不成功(ios系统有缓存启动图，改名后就正常了)
+2. ios launchimage 替换后，在已安装过app的设备上 启动图替换不成功(ios系统有缓存启动图，改名后就正常了
+3. xcode build缓存，闪图修改后xcode装包还是之前的旧闪图，xcode build clean后，重装闪图正常
 
 ## LaunchImage
 
