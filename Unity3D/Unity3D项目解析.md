@@ -3,6 +3,8 @@ Unity3D 技巧
 
 ##状态机
  initres、login、selectRole、game
+ 
+##资源加载框架
 
 ##资源打AB
 
@@ -26,4 +28,11 @@ UI加载
 ##UI系统
 window管理 popwidow  fullwindow  msgwindow
 
-##
+##热更新
+
+AB资源的读取
+
+##xLua 集成
+
+lua框架
+
