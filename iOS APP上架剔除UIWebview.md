@@ -25,6 +25,7 @@ Architectures in the fat file: libiPhone-lib.a are: armv7 arm64 armv7s
 * 提取arm64部分：  
 
     lipo libiPhone-lib.a -thin arm64 -output libiPhone-lib-arm64.a
+	lipo libiPhone-lib.a -thin armv7 -output libiPhone-lib-armv7.a
 
 将一下代码保存为URLUtility.mm，并引入到工程中
 
@@ -65,5 +66,6 @@ Architectures in the fat file: libiPhone-lib.a are: armv7 arm64 armv7s
 * 从lib库中剔除URLUtility.o   
 
     ar -d libiPhone-lib-arm64.a URLUtility.o
+	ar -d libiPhone-lib-armv7.a URLUtility.o
 
 由于iOS系统基本上都是64位的了，我们只使用arm64的就够了。 删除原有的libiPhone-lib.a，然后引用libiPhone-lib-arm64.a。在打包，成功上传到ITunes connect。
