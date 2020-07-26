@@ -52,7 +52,7 @@
 ## shader 关键字
  Properties 、Color、SubShader、FallBack
 ## Properties
-Properties 属性参数，对应Unity 编辑器面板
+Properties 属性参数，对应Unity 编辑器显示面板
 
 * "Color" 属性名  Color 属性类型(shader的关键字) (1,1,1,1)变量值
 
@@ -63,10 +63,14 @@ Properties 属性参数，对应Unity 编辑器面板
 
 如果没有一个subshader被硬件支持，就使用fallback
 
+编写Shader 至少要有一个SubShader 但是多个SubShader只能选一个执行 所以多个SubShader是为了不同设备环境所编写（就是游戏里的画质高中低分级渲染）
+
 ## FallBack
 字面意思就是回滚
 
 没有一个subshader被正常执行，就回滚使用系统提供的一些简单shader（内建shader）。
+
+回滚 如果以上SubShader都带不动就运行绝大多数都能运行的SubShader（一般往往是Unity自带的）
 
 * Unlit 不发光，这只是一个纹理，不被任何光照影响； 经常用于UI
 * VertexLit 顶点光照
@@ -77,3 +81,37 @@ Properties 属性参数，对应Unity 编辑器面板
 * Parallax Normal Mapped 视差法线贴图。这增加了视差法线贴图计算
 * Parallax Normal Mapped Specullar 视差法线高光贴图。 这增加了视差法线贴图和镜面高光计算
 
+# 固定管线shader
+
+Fixed Function Shader  功能有限，速度最快
+
+		pass {
+			//color(1,1,1,1)
+			//color[_Color] //[属性]  参数
+
+			material{
+				diffuse[_Color]
+				ambient[_Ambient]
+				specular[_Specular]
+				shininess[_Shininess]
+			}
+
+			lighting on
+			separatespecular on
+		}
+
+pass 关键字  通道
+
+material 关键字  材质
+
+lighting 关键字  光照  light on/off 光照开关
+
+Ambient 关键字  环境光 Ambient on/off 环境光开关
+
+Specular 关键字 高光
+
+separatespecular 关键字  独立的镜面高光  separatespecular on/off
+
+Shininess 关键字  光滑度  控制反光点集中
+
+emission 关键字 自发光
