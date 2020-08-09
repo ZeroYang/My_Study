@@ -67,5 +67,19 @@ Architectures in the fat file: libiPhone-lib.a are: armv7 arm64 armv7s
 
     ar -d libiPhone-lib-arm64.a URLUtility.o
 	ar -d libiPhone-lib-armv7.a URLUtility.o
+    
+* lib解压成.o 
+   ar -x libiPhone-lib-arm64.a
+   
+* .o 文件转成.m
+nm ./SSRVInitialize.o > ./SSRVInitialize.m
+
+先解压成.o文件，在搜索UIWebView,然后从.a文件中剔除相关的.o文件
+
+# 在文件最后增加 URLUtility.o
+ar -q libiPhone-lib.a URLUtility.o
+
+##补充
+Unity的新版本是修复了UIWebView问题，如果不方便升级Unity，可以选择解压libiPhone-lib.a ,然后搜索是哪个文件使用了UIWebView,然后从新版本的解压出文件，并替换有问题的
 
 由于iOS系统基本上都是64位的了，我们只使用arm64的就够了。 删除原有的libiPhone-lib.a，然后引用libiPhone-lib-arm64.a。在打包，成功上传到ITunes connect。
