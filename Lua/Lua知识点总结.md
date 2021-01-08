@@ -1,5 +1,22 @@
 # Lua 知识点总结
 
+## 闭包closure
+闭包的典型出现形式： 一个 closure 就是一个函数加上该函数所需访问的所有"非局部的变量"
+
+```
+function test(x)
+
+    return function (value)
+
+        return value * x
+
+    end
+
+end
+func = test(10)
+print( func(11) ) 
+
+```
 ## 循环
     
 * for循环
@@ -48,3 +65,38 @@
     a = a+1
     a = a-1
 ```
+
+## 内存泄漏
+
+Lua的垃圾回收是自动进行的，但是我们可以collectgarbage方法进行手动回收。collectgarbage方法的第一个参数是字符串，代表操作类型，第二个参数只有某些操作类型有，是该操作所需要的参数。常用的操作类型有：
+
+collect：执行一次完整的垃圾回收
+
+count：返回当前使用的内存，单位是kb
+
+* 示例： 
+```
+function PrintCount()
+    print("内存为：", collectgarbage("count"))--输出当前内存占用
+end
+
+function A()
+    collectgarbage("collect")--进行垃圾回收，减少干扰
+    PrintCount()
+    local a = {}
+    for i=1,5000 do
+        table.insert(a, {})
+    end
+    PrintCount()
+    collectgarbage("collect")
+    PrintCount()
+end
+
+A()
+PrintCount()
+collectgarbage("collect")
+PrintCount()
+```
+
+* 减少内存泄漏的方法
+    1. 尽量用局部变量，这样当其生命周期结束时，就能被回收；对于全局变量，可以根据使用情况置空，及时回收内存。
